@@ -1,0 +1,109 @@
+:root {
+	--background-color: #F885C1;
+	--background-color2: #F8D0D2;
+	--color: #2B92E4;
+	--text-color: #EFF2F8;
+	--white: #FFF;
+	--black: #000;
+	--grey: #788287;
+}
+/*---------------
+	Generel
+----------------*/
+html, body {
+	height: 100%;
+	font-size:16px;
+	font-family: 'calibri', sans-serif, serif;
+}
+header,nav,main,section,article,footer{
+	width:100%;
+	max-width:100%;
+}
+html {
+	overflow-y: scroll;
+}
+
+/*---------------
+	generel - but in main
+----------------*/
+button{
+    width: 41%;
+    margin: 4%;
+    background-color: pink;
+    border: none;
+    outline: 1px solid red;
+    padding: 2%;
+    cursor: pointer;
+}
+
+/*---------------
+	main
+----------------*/
+
+
+/*---------------
+	chat
+----------------*/
+
+    .chatFunction{
+        height: 92%;
+        position: absolute;
+        z-index: 99;
+        bottom: 3%;
+        right: 5%;
+        width: 90%;
+    }
+        .chatButton{
+            padding: 5%;
+            position: absolute;
+            width: 47%;
+            bottom: 0;
+            right: 4%;
+            cursor: pointer;
+        }
+            .chatBox{
+                margin: 2%;
+                display: none;
+                width: 100%;
+                outline: black 1px solid;
+                background-color: white;
+                height: 83%;
+                grid-template-columns: repeat(6, 1fr);
+                grid-template-rows: repeat(6, 1fr);
+                grid-gap: 2%;
+            }
+                .close{
+                    color: black;
+                    padding: 4%;
+                    grid-area: 1/6/1/7;
+                    cursor: pointer;
+                    text-align: center;
+                    font-size: 2em;
+                }
+                .fa-robot{
+                    grid-area: 6/6/7/7;
+                    font-size: 3em;
+                }
+                .chatBox-talk{
+                    grid-area: 1/1/6/6;
+                    display: flex;
+                    flex-direction: column;
+                    position: sticky;
+                    overflow-y: scroll;
+                    margin: 3%;
+                }
+                .chatInput{
+                    grid-area: 6/1/6/6;
+                    outline: 1px solid green;
+                }
+
+@media screen and (min-width:780px){
+  /*---------------
+	chat
+----------------*/
+
+.chatFunction{
+    height: 86%;
+    width: 18%;
+  }
+}

@@ -1,0 +1,178 @@
+:root {
+	--white: #FFF;
+	--black: #000;
+	--footer: #444441;
+    --link-hover: #E6887C;
+    --link: #2D3975;
+}
+/*---------------
+	Generel
+----------------*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+html, body {
+	font-size:16px;
+	font-family: 'helvetica', sans-serif, serif;
+}
+header,nav,main,section,article,footer{
+	width:100%;
+	max-width:100%;
+}
+html {
+	overflow-y: scroll;
+}
+header{
+    text-align: center;
+}
+main{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "image"
+        "info"
+        "bio"
+        "erhverv"
+        "skole"
+        "button"
+        "faglig"
+        "personlig"
+        "sprog"
+        "fritid";
+        padding: 0 7%;
+}
+footer{
+    text-align: center;
+    background-color: var(--footer);
+    color:white;
+    padding: 1%;
+    margin-top: 6%;
+}
+h3{
+    border-bottom: 2px solid var(--black)
+}
+a{
+   color: var(--link);
+    text-decoration: none;
+}
+a:hover{
+    color:var(--link-hover);
+}
+article > article{
+    margin: 11% 0;
+}
+/*---------------
+	header elements
+----------------*/
+
+/*---------------
+	footer elements - index
+----------------*/
+footer a{
+    color: var(--white);
+}
+
+/*---------------
+	main elements - index
+----------------*/
+main > img {
+    grid-area: image;
+}
+.info{
+    grid-area: info;
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8%;
+    line-height: 33px;
+}
+    .info div{
+        margin: 2% 0;
+    }
+.bio{
+    grid-area: bio;
+    border: 1px solid var(--black);
+    padding: 2%;
+    margin: 6% 0;
+}
+.erhverv{
+    grid-area: erhverv;
+}
+.skole{
+    grid-area: skole;
+}
+/* ---------------
+	main - index - JS
+---------------- */
+
+#kompentencer-button{
+    grid-area: button;
+    background-color: var(--link-hover);
+    color: white;
+    border: none;
+    padding: 2%;
+    font-size: 1.2em;
+}
+
+    .faglige{
+        grid-area: faglig;
+    }
+    .personlige{
+        grid-area: personlig;
+    }
+    .languange{
+        grid-area: sprog;
+    }
+    .freetime{
+        grid-area: fritid;
+    }
+    .faglige h3, .personlige h3, .languange h3, .freetime h3{
+        margin: 11% 0;
+    }
+
+
+@media  screen and (min-width:780px) {
+    /*---------------
+	    Generel
+    ----------------*/
+    body{
+        background: url(../images/bg.svg) no-repeat;
+        background-position: center top;
+        background-size: contain;
+    }
+    main{
+        display: grid;
+        grid-template-columns: 2fr 2fr 2% 2fr 2fr;
+        grid-template-areas: 
+            " . image . info ." 
+            " . bio bio bio ."
+            " . erhverv . skole ."
+            ". button button button ."
+            ". faglig . personlig ."
+            ". sprog . fritid .";
+    }
+    footer{
+        margin-top: 2%;
+    }
+    /* ---------------
+	    main - index - JS
+    ---------------- */
+    .faglige{
+        grid-area: faglig;
+    }
+    .personlige{
+        grid-area: personlig;
+    }
+    .languange{
+        grid-area: sprog;
+    }
+    .freetime{
+        grid-area: fritid;
+    }
+    .faglige h3, .personlige h3, .languange h3, .freetime h3{
+        margin: 6% 0;
+    }
+
+        
+}
