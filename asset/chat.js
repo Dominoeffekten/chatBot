@@ -14,26 +14,71 @@ const ce = function (foo) {
 let chatFunction = query(".chatFunction"); //div with all information
 let chatBox = query(".chatBox"); //the box with a ll information
 let chatBoxTalk = query(".chatBox-talk");
+let icon = query(".fa-angle-down");
+
+
+//kontakt
+function end(){
+    console.log("kontakt");
+
+    chatBoxTalk.innerHTML = " ";
+    icon.style.display = "none";
+    let p = ce("p");
+    p.innerHTML = `Tak fordi du gad at lytte til mig. Jeg håber at det har været spændende. <br> 
+    Rikke kan kontaktes på <a href="mailto:rikkedomino@gmail.com</a>`;
+    chatBoxTalk.append(p);
+};
 
 //personlighed
 function question4(){
     deleteButton();
-    console.log("personlig");
     let p = ce("p");
-        p.innerHTML = `Rikke`;
-        chatBoxTalk.append(p);
-}
+    p.innerHTML = `personlighed`;
+    chatBoxTalk.append(p);
 
+    function nextThing(){
+        let div = ce("div");
+        let fagButton = ce("button");
+        let contactButton = ce("button");
+        fagButton.setAttribute("class", "chatbot-button");
+        contactButton.setAttribute("class", "chatbot-button");
+        fagButton.innerHTML = "Faglighed?";
+        contactButton.innerHTML = "Kontakt hende i dag";
+        div.append(fagButton);
+        div.append(contactButton);
+        chatBoxTalk.append(div);
+    
+        fagButton.addEventListener("click", question5);
+        contactButton.addEventListener("click", end);
+    };
+    setTimeout(nextThing, 2000);
+};
 //faglighed
 function question5(){
     deleteButton();
-    console.log("faglighed");
     let p = ce("p");
-        p.innerHTML = `Rikke har en PB. i Webudvikling, som hun tog ved IBA erhvervsakademi Kolding i 2019 - 2021. <br>
-        Men hun har også en uddannelse som multimediedesigner. Det betyder, at hun kan programmere og designe elementer.`;
-        chatBoxTalk.append(p);
-}
+    p.innerHTML = `Rikke har en PB. i Webudvikling, som hun tog ved IBA erhvervsakademi Kolding i 2019 - 2021. <br>
+    Men hun har også en uddannelse som multimediedesigner. Det betyder, at hun kan programmere og designe elementer.`;
+    chatBoxTalk.append(p);
 
+    function nextThing(){
+        let div = ce("div");
+        let perButton = ce("button");
+        let contactButton = ce("button");
+        perButton.setAttribute("class", "chatbot-button");
+        contactButton.setAttribute("class", "chatbot-button");
+        perButton.innerHTML = "Personlighed?";
+        contactButton.innerHTML = "Kontakt hende i dag";
+        div.append(perButton);
+        div.append(contactButton);
+        chatBoxTalk.append(div);
+
+        perButton.addEventListener("click", question4);
+        contactButton.addEventListener("click", end);
+    };
+    setTimeout(nextThing, 2000);
+};
+//personlig eller faglighed
 function question3(){
     deleteButton();
     let p = ce("p");
@@ -86,6 +131,7 @@ function question2(){
         yesButton.innerHTML = "Ja";
         noButton.innerHTML = "Nej";
         p2.innerHTML = `Vil du høre mere?`;
+        icon.style.display = "block";
         chatBoxTalk.append(p2);
         div.append(yesButton);
         div.append(noButton);
@@ -119,6 +165,7 @@ function question1(){
 //close chatbox
 function close(){
     chatBoxTalk.innerHTML = " ";
+    icon.style.display = "none";
     let p = ce("p");
     p.innerHTML = `Det er i orden. Vi ses senere`;
     chatBoxTalk.append(p);
@@ -138,7 +185,17 @@ function startChat(){
     question1();
 
     query(".close").addEventListener("click", close);
+
+
 };
+//Scroll down
+function scrollDown(){
+    window.setInterval(function() {
+        chatBoxTalk.scrollTop = chatBoxTalk.scrollHeight;
+    }, 100);
+};
+
+
 
 //disable buttons
 function deleteButton(e){

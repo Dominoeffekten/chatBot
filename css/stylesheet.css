@@ -96,6 +96,12 @@ button{
                     grid-area: 6/1/6/6;
                     outline: 1px solid green;
                 }
+                .fa-angle-down{
+                    display:none;
+                    grid-area: 6/3/7/4;
+                    text-align: center;
+                    font-size: 2em;
+                }
 
 @media screen and (min-width:780px){
   /*---------------
@@ -104,6 +110,6 @@ button{
 
 .chatFunction{
     height: 86%;
-    width: 18%;
+    width: 29%;
   }
 }
